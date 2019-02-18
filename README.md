@@ -9,3 +9,10 @@ since we believe that it is better after that to build and use your custom class
 #### TODO
 - Documentation
 - Build immutable versions of the tuples (or modify current ones).
+- Methods:
+  - append
+  - prepend
+  - merge / expand
+  - Increase limit to 10
+  - move asTuple... methods implementation to sub classes (?)
+- Check Apache common, Scala tuples and 'javatuples' implementations.

@@ -58,6 +58,16 @@ public class Tuple4<T1, T2, T3, T4> implements ExpandableTuple {
     }
 
     @Override
+    public Tuple3<T2, T3, T4> removeFirst() {
+        return Tuple.of(_2, _3, _4);
+    }
+
+    @Override
+    public Tuple3<T1, T2, T3> removeLast() {
+        return Tuple.of(_1, _2, _3);
+    }
+
+    @Override
     public Tuple4<T4, T3, T2, T1> reverse() {
         return Tuple.of(_4, _3, _2, _1);
     }

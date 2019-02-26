@@ -10,8 +10,7 @@ since we believe that it is better after that to build and use your custom class
 - Documentation
 - Methods:
   - merge / expand
-  - removeFirst / removeLast
   - `?` push (alias to append) / pop (alias to removeLast)
-- `?` Support `Tuple6` - `Tuple9` `?` `?`
+- `?` Support `Tuple6` - `Tuple9`
 - `?` Support `TupleN`
 - Check Apache common, Scala tuples and 'javatuples' implementations.

@@ -37,7 +37,17 @@ public class Tuple2<T1, T2> implements ExpandableTuple {
         return Tuple.of(_1, _2, _3);
     }
 
-    public Tuple2 swap() {
+    @Override
+    public Tuple1<T2> removeFirst() {
+        return Tuple.of(_2);
+    }
+
+    @Override
+    public Tuple1<T1> removeLast() {
+        return Tuple.of(_1);
+    }
+
+    public Tuple2<T2, T1> swap() {
         return reverse();
     }
 

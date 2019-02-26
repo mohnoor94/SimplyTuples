@@ -58,6 +58,16 @@ public class Tuple5<T1, T2, T3, T4, T5> implements FixedTuple {
     }
 
     @Override
+    public Tuple4<T2, T3, T4, T5> removeFirst() {
+        return Tuple.of(_2, _3, _4, _5);
+    }
+
+    @Override
+    public Tuple4<T1, T2, T3, T4> removeLast() {
+        return Tuple.of(_1, _2, _3, _4);
+    }
+
+    @Override
     public Tuple5<T5, T4, T3, T2, T1> reverse() {
         return Tuple.of(_5, _4, _3, _2, _1);
     }

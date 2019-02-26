@@ -28,6 +28,16 @@ public class Tuple1<T1> implements ExpandableTuple {
     }
 
     @Override
+    public Tuple0 removeFirst() {
+        return Tuple.empty();
+    }
+
+    @Override
+    public Tuple0 removeLast() {
+        return Tuple.empty();
+    }
+
+    @Override
     public Tuple1<T1> reverse() {
         return Tuple.of(_1);
     }

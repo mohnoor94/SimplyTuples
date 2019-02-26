@@ -6,4 +6,6 @@ import java.io.Serializable;
 public interface FixedTuple extends Serializable {
 
     FixedTuple reverse();
+    ExpandableTuple removeFirst();
+    ExpandableTuple removeLast();
 }

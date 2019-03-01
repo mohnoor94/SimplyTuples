@@ -9,8 +9,8 @@ since we believe that it is better after that to build and use your custom class
 #### TODO
 - Documentation
 - Methods:
+  - **from** to builder. Build bigger tuples using smaller ones
   - merge / expand
   - `?` push (alias to append) / pop (alias to removeLast)
 - `?` Support `Tuple6` - `Tuple9`
-- `?` Support `TupleN`
 - Check Apache common, Scala tuples and 'javatuples' implementations.

@@ -1,15 +1,20 @@
 package com.abukhleif.simplytuples.tuple;
 
 import com.abukhleif.simplytuples.builder.Tuple;
+import com.abukhleif.simplytuples.parent.Parent3;
 import com.abukhleif.simplytuples.type.ExpandableTuple;
+import com.abukhleif.simplytuples.value.Value1;
+import com.abukhleif.simplytuples.value.Value2;
+import com.abukhleif.simplytuples.value.Value3;
 
 import java.util.Objects;
 
-public class Tuple3<T1, T2, T3> implements ExpandableTuple {
+public class Tuple3<T1, T2, T3>
+        implements ExpandableTuple, Parent3<T1, T2, T3>, Value1<T1>, Value2<T2>, Value3<T3> {
 
-    private T1 _1;
-    private T2 _2;
-    private T3 _3;
+    private final T1 _1;
+    private final T2 _2;
+    private final T3 _3;
 
     public Tuple3(T1 _1, T2 _2, T3 _3) {
         this._1 = _1;
@@ -17,24 +22,59 @@ public class Tuple3<T1, T2, T3> implements ExpandableTuple {
         this._3 = _3;
     }
 
+    @Override
     public T1 _1() {
         return _1;
     }
 
+    @Override
     public T2 _2() {
         return _2;
     }
 
+    @Override
     public T3 _3() {
         return _3;
     }
 
+    @Override
     public Tuple1<T1> asTuple1() {
         return Tuple.of(_1);
     }
 
+    @Override
     public Tuple2<T1, T2> asTuple2() {
+        return remove3();
+    }
+
+    @Override
+    public Tuple2<T2, T3> remove1() {
+        return Tuple.of(_2, _3);
+    }
+
+    @Override
+    public Tuple2<T1, T3> remove2() {
+        return Tuple.of(_1, _3);
+    }
+
+    @Override
+    public Tuple2<T1, T2> remove3() {
         return Tuple.of(_1, _2);
+    }
+
+    @Override
+    public Tuple3<T1, T2, T3> update1(T1 _1) {
+        return Tuple.of(_1, _2, _3);
+    }
+
+    @Override
+    public Tuple3<T1, T2, T3> update2(T2 _2) {
+        return Tuple.of(_1, _2, _3);
+    }
+
+    @Override
+    public Tuple3<T1, T2, T3> update3(T3 _3) {
+        return Tuple.of(_1, _2, _3);
     }
 
     @Override
@@ -49,12 +89,12 @@ public class Tuple3<T1, T2, T3> implements ExpandableTuple {
 
     @Override
     public Tuple2<T2, T3> removeFirst() {
-        return Tuple.of(_2, _3);
+        return remove1();
     }
 
     @Override
     public Tuple2<T1, T2> removeLast() {
-        return Tuple.of(_1, _2);
+        return remove3();
     }
 
     @Override

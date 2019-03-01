@@ -1,16 +1,22 @@
 package com.abukhleif.simplytuples.tuple;
 
 import com.abukhleif.simplytuples.builder.Tuple;
+import com.abukhleif.simplytuples.parent.Parent4;
 import com.abukhleif.simplytuples.type.ExpandableTuple;
+import com.abukhleif.simplytuples.value.Value1;
+import com.abukhleif.simplytuples.value.Value2;
+import com.abukhleif.simplytuples.value.Value3;
+import com.abukhleif.simplytuples.value.Value4;
 
 import java.util.Objects;
 
-public class Tuple4<T1, T2, T3, T4> implements ExpandableTuple {
+public class Tuple4<T1, T2, T3, T4>
+        implements ExpandableTuple, Parent4<T1, T2, T3, T4>, Value1<T1>, Value2<T2>, Value3<T3>, Value4<T4> {
 
-    private T1 _1;
-    private T2 _2;
-    private T3 _3;
-    private T4 _4;
+    private final T1 _1;
+    private final T2 _2;
+    private final T3 _3;
+    private final T4 _4;
 
     public Tuple4(T1 _1, T2 _2, T3 _3, T4 _4) {
         this._1 = _1;
@@ -19,32 +25,79 @@ public class Tuple4<T1, T2, T3, T4> implements ExpandableTuple {
         this._4 = _4;
     }
 
+    @Override
     public T1 _1() {
         return _1;
     }
 
+    @Override
     public T2 _2() {
         return _2;
     }
 
+    @Override
     public T3 _3() {
         return _3;
     }
 
+    @Override
     public T4 _4() {
         return _4;
     }
 
+    @Override
     public Tuple1<T1> asTuple1() {
         return Tuple.of(_1);
     }
 
+    @Override
     public Tuple2<T1, T2> asTuple2() {
         return Tuple.of(_1, _2);
     }
 
+    @Override
     public Tuple3<T1, T2, T3> asTuple3() {
+        return remove4();
+    }
+
+    @Override
+    public Tuple3<T2, T3, T4> remove1() {
+        return Tuple.of(_2, _3, _4);
+    }
+
+    @Override
+    public Tuple3<T1, T3, T4> remove2() {
+        return Tuple.of(_1, _3, _4);
+    }
+
+    @Override
+    public Tuple3<T1, T2, T4> remove3() {
+        return Tuple.of(_1, _2, _4);
+    }
+
+    @Override
+    public Tuple3<T1, T2, T3> remove4() {
         return Tuple.of(_1, _2, _3);
+    }
+
+    @Override
+    public Tuple4<T1, T2, T3, T4> update1(T1 _1) {
+        return Tuple.of(_1, _2, _3, _4);
+    }
+
+    @Override
+    public Tuple4<T1, T2, T3, T4> update2(T2 _2) {
+        return Tuple.of(_1, _2, _3, _4);
+    }
+
+    @Override
+    public Tuple4<T1, T2, T3, T4> update3(T3 _3) {
+        return Tuple.of(_1, _2, _3, _4);
+    }
+
+    @Override
+    public Tuple4<T1, T2, T3, T4> update4(T4 _4) {
+        return Tuple.of(_1, _2, _3, _4);
     }
 
     @Override
@@ -59,12 +112,12 @@ public class Tuple4<T1, T2, T3, T4> implements ExpandableTuple {
 
     @Override
     public Tuple3<T2, T3, T4> removeFirst() {
-        return Tuple.of(_2, _3, _4);
+        return remove1();
     }
 
     @Override
     public Tuple3<T1, T2, T3> removeLast() {
-        return Tuple.of(_1, _2, _3);
+        return remove4();
     }
 
     @Override

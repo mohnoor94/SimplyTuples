@@ -1,11 +1,12 @@
 package com.abukhleif.simplytuples.tuple;
 
 import com.abukhleif.simplytuples.builder.Tuple;
+import com.abukhleif.simplytuples.parent.Parent0;
 import com.abukhleif.simplytuples.type.ExpandableTuple;
 
-public class Tuple0 implements ExpandableTuple {
+public class Tuple0 implements ExpandableTuple, Parent0 {
 
-    private static Tuple0 instance = new Tuple0();
+    private static final Tuple0 instance = new Tuple0();
 
     private Tuple0() {
     }

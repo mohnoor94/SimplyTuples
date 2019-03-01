@@ -1,20 +1,34 @@
 package com.abukhleif.simplytuples.tuple;
 
 import com.abukhleif.simplytuples.builder.Tuple;
+import com.abukhleif.simplytuples.parent.Parent1;
 import com.abukhleif.simplytuples.type.ExpandableTuple;
+import com.abukhleif.simplytuples.value.Value1;
 
 import java.util.Objects;
 
-public class Tuple1<T1> implements ExpandableTuple {
+public class Tuple1<T1>
+        implements ExpandableTuple, Parent1<T1>, Value1<T1> {
 
-    private T1 _1;
+    private final T1 _1;
 
     public Tuple1(T1 _1) {
         this._1 = _1;
     }
 
+    @Override
     public T1 _1() {
         return _1;
+    }
+
+    @Override
+    public Tuple0 remove1() {
+        return Tuple.empty();
+    }
+
+    @Override
+    public Tuple1<T1> update1(T1 _1) {
+        return Tuple.of(_1);
     }
 
     @Override
@@ -29,12 +43,12 @@ public class Tuple1<T1> implements ExpandableTuple {
 
     @Override
     public Tuple0 removeFirst() {
-        return Tuple.empty();
+        return remove1();
     }
 
     @Override
     public Tuple0 removeLast() {
-        return Tuple.empty();
+        return remove1();
     }
 
     @Override

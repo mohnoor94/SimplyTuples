@@ -1,30 +1,57 @@
 package com.abukhleif.simplytuples.tuple;
 
 import com.abukhleif.simplytuples.builder.Tuple;
+import com.abukhleif.simplytuples.parent.Parent2;
 import com.abukhleif.simplytuples.type.ExpandableTuple;
+import com.abukhleif.simplytuples.value.Value1;
+import com.abukhleif.simplytuples.value.Value2;
 
 import java.util.Objects;
 
-public class Tuple2<T1, T2> implements ExpandableTuple {
+public class Tuple2<T1, T2>
+        implements ExpandableTuple, Parent2<T1, T2>, Value1<T1>, Value2<T2> {
 
-    private T1 _1;
-    private T2 _2;
+    private final T1 _1;
+    private final T2 _2;
 
     public Tuple2(T1 _1, T2 _2) {
         this._1 = _1;
         this._2 = _2;
     }
 
+    @Override
     public T1 _1() {
         return _1;
     }
 
+    @Override
     public T2 _2() {
         return _2;
     }
 
+    @Override
     public Tuple1<T1> asTuple1() {
+        return remove2();
+    }
+
+    @Override
+    public Tuple1<T2> remove1() {
+        return Tuple.of(_2);
+    }
+
+    @Override
+    public Tuple1<T1> remove2() {
         return Tuple.of(_1);
+    }
+
+    @Override
+    public Tuple2<T1, T2> update1(T1 _1) {
+        return Tuple.of(_1, _2);
+    }
+
+    @Override
+    public Tuple2<T1, T2> update2(T2 _2) {
+        return Tuple.of(_1, _2);
     }
 
     @Override
@@ -39,12 +66,12 @@ public class Tuple2<T1, T2> implements ExpandableTuple {
 
     @Override
     public Tuple1<T2> removeFirst() {
-        return Tuple.of(_2);
+        return remove1();
     }
 
     @Override
     public Tuple1<T1> removeLast() {
-        return Tuple.of(_1);
+        return remove2();
     }
 
     public Tuple2<T2, T1> swap() {

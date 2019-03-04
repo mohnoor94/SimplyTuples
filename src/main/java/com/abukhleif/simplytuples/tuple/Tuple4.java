@@ -8,6 +8,8 @@ import com.abukhleif.simplytuples.value.Value2;
 import com.abukhleif.simplytuples.value.Value3;
 import com.abukhleif.simplytuples.value.Value4;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Tuple4<T1, T2, T3, T4>
@@ -123,6 +125,16 @@ public class Tuple4<T1, T2, T3, T4>
     @Override
     public Tuple4<T4, T3, T2, T1> reverse() {
         return Tuple.of(_4, _3, _2, _1);
+    }
+
+    @Override
+    public List<Object> toList() {
+        return Arrays.asList(_1, _2, _3, _4);
+    }
+
+    @Override
+    public <T> List<T> toList(Class<T> clazz) {
+        return Arrays.asList(clazz.cast(_1), clazz.cast(_2), clazz.cast(_3), clazz.cast(_4));
     }
 
     @Override

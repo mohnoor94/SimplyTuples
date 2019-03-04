@@ -6,6 +6,8 @@ import com.abukhleif.simplytuples.type.ExpandableTuple;
 import com.abukhleif.simplytuples.value.Value1;
 import com.abukhleif.simplytuples.value.Value2;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Tuple2<T1, T2>
@@ -81,6 +83,16 @@ public class Tuple2<T1, T2>
     @Override
     public Tuple2<T2, T1> reverse() {
         return Tuple.of(_2, _1);
+    }
+
+    @Override
+    public List<Object> toList() {
+        return Arrays.asList(_1, _2);
+    }
+
+    @Override
+    public <T> List<T> toList(Class<T> clazz) {
+        return Arrays.asList(clazz.cast(_1), clazz.cast(_2));
     }
 
     @Override

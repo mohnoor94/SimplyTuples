@@ -5,6 +5,8 @@ import com.abukhleif.simplytuples.parent.Parent5;
 import com.abukhleif.simplytuples.type.SimplyTuple;
 import com.abukhleif.simplytuples.value.*;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Tuple5<T1, T2, T3, T4, T5>
@@ -132,6 +134,16 @@ public class Tuple5<T1, T2, T3, T4, T5>
     @Override
     public Tuple5<T5, T4, T3, T2, T1> reverse() {
         return Tuple.of(_5, _4, _3, _2, _1);
+    }
+
+    @Override
+    public List<Object> toList() {
+        return Arrays.asList(_1, _2, _3, _4, _5);
+    }
+
+    @Override
+    public <T> List<T> toList(Class<T> clazz) {
+        return Arrays.asList(clazz.cast(_1), clazz.cast(_2), clazz.cast(_3), clazz.cast(_4), clazz.cast(_5));
     }
 
     @Override

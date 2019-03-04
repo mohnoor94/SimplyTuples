@@ -5,6 +5,8 @@ import com.abukhleif.simplytuples.parent.Parent1;
 import com.abukhleif.simplytuples.type.ExpandableTuple;
 import com.abukhleif.simplytuples.value.Value1;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 public class Tuple1<T1>
@@ -54,6 +56,17 @@ public class Tuple1<T1>
     @Override
     public Tuple1<T1> reverse() {
         return Tuple.of(_1);
+    }
+
+
+    @Override
+    public List<Object> toList() {
+        return Collections.singletonList(_1);
+    }
+
+    @Override
+    public <T> List<T> toList(Class<T> clazz) {
+        return Collections.singletonList(clazz.cast(_1));
     }
 
     @Override

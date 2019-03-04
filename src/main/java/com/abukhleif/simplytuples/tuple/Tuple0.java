@@ -4,6 +4,9 @@ import com.abukhleif.simplytuples.builder.Tuple;
 import com.abukhleif.simplytuples.parent.Parent0;
 import com.abukhleif.simplytuples.type.ExpandableTuple;
 
+import java.util.Collections;
+import java.util.List;
+
 public class Tuple0 implements ExpandableTuple, Parent0 {
 
     private static final Tuple0 instance = new Tuple0();
@@ -38,6 +41,17 @@ public class Tuple0 implements ExpandableTuple, Parent0 {
     @Override
     public Tuple0 reverse() {
         return Tuple.empty();
+    }
+
+
+    @Override
+    public List<Object> toList() {
+        return Collections.emptyList();
+    }
+
+    @Override
+    public <T> List<T> toList(Class<T> clazz) {
+        return Collections.emptyList();
     }
 
     @Override
